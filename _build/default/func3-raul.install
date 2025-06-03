@@ -1,0 +1,8 @@
+lib: [
+  "_build/install/default/lib/func3-raul/META"
+  "_build/install/default/lib/func3-raul/dune-package"
+  "_build/install/default/lib/func3-raul/opam"
+]
+bin: [
+  "_build/install/default/bin/func3-raul"
+]

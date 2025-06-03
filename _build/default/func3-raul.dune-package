@@ -1,0 +1,4 @@
+(lang dune 3.18)
+(name func3-raul)
+(sections (lib .) (bin ../../bin))
+(files (lib (META dune-package opam)) (bin (func3-raul)))
