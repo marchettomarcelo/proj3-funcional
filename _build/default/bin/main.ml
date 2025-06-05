@@ -36,7 +36,7 @@ let handler _conn req body =
   | (`POST, "/") ->
     Cohttp_lwt.Body.to_string body >>= fun body_str ->
     Printf.printf "Body received: %s\n%!" body_str;
-
+    
     let json =
       try Ok (Yojson.Safe.from_string body_str)
       with Yojson.Json_error msg -> Error msg
@@ -46,14 +46,34 @@ let handler _conn req body =
     | Ok json_obj ->
     
         let transaction_id = json_obj |> Util.member "transaction_id" |> Util.to_string in
-    
-        if List.mem transaction_id !transaction_ids then
-          (send_fail body_str >>= fun () ->
-           Server.respond_string ~status:`Conflict ~body:"Duplicate transaction_id. Cancel request sent." ())
+        (* let event = json_obj |> Util.member "event" |> Util.to_string in *)
+        let amount = json_obj |> Util.member "amount" |> Util.to_string in
+        (* let currency = json_obj |> Util.member "currency" |> Util.to_string in
+        let timestamp = json_obj |> Util.member "timestamp" |> Util.to_string in  *)
+
+        
+        
+
+        
+
+        if amount = "0.00" then
+          send_fail body_str >>= fun () ->
+          Server.respond_string ~status:`Conflict ~body:"Amount is zero. Cancel request sent." ()
+        
+        
+        else if amount = "0.00" then
+          send_fail body_str >>= fun () ->
+          Server.respond_string ~status:`Conflict ~body:"Amount is zero. Cancel request sent." ()
+
+        else if List.mem transaction_id !transaction_ids then
+          send_fail body_str >>= fun () ->
+          Server.respond_string ~status:`Conflict ~body:"Duplicate transaction_id. Cancel request sent." ()
+          
         else
           (transaction_ids := transaction_id :: !transaction_ids;
-           send_success body_str >>= fun () ->
-           Server.respond_string ~status:`OK ~body:body_str ())
+          send_success body_str >>= fun () ->
+          Server.respond_string ~status:`OK ~body:body_str ())
+        
     
     | Error msg ->
         Printf.printf "JSON parse error: %s\n%!" msg;
