@@ -1,0 +1,6 @@
+description = ""
+requires = "cohttp-lwt-unix lwt sqlite3 yojson"
+archive(byte) = "func3_raul.cma"
+archive(native) = "func3_raul.cmxa"
+plugin(byte) = "func3_raul.cma"
+plugin(native) = "func3_raul.cmxs"

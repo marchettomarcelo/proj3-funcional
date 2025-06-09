@@ -1,5 +1,5 @@
 (executable
  (public_name func3-raul)
  (name main)
- (libraries func3_raul cohttp-lwt-unix lwt yojson )
- (modes exe))
+ (libraries func3_raul cohttp-lwt-unix lwt yojson sqlite3)
+ )

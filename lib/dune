@@ -1,2 +1,5 @@
 (library
- (name func3_raul))
+ (name func3_raul)
+ (public_name func3-raul)
+ (libraries sqlite3 cohttp-lwt-unix lwt yojson)
+  (modules db_utils webhook  ))

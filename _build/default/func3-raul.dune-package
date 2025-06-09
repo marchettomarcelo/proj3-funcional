@@ -1,4 +1,53 @@
 (lang dune 3.18)
 (name func3-raul)
-(sections (lib .) (bin ../../bin))
-(files (lib (META dune-package opam)) (bin (func3-raul)))
+(sections (lib .) (libexec .) (bin ../../bin))
+(files
+ (lib
+  (META
+   db_utils.ml
+   dune-package
+   func3_raul.a
+   func3_raul.cma
+   func3_raul.cmi
+   func3_raul.cmt
+   func3_raul.cmx
+   func3_raul.cmxa
+   func3_raul.ml
+   func3_raul__Db_utils.cmi
+   func3_raul__Db_utils.cmt
+   func3_raul__Db_utils.cmx
+   func3_raul__Webhook.cmi
+   func3_raul__Webhook.cmt
+   func3_raul__Webhook.cmx
+   opam
+   webhook.ml))
+ (libexec (func3_raul.cmxs))
+ (bin (func3-raul)))
+(library
+ (name func3-raul)
+ (kind normal)
+ (archives (byte func3_raul.cma) (native func3_raul.cmxa))
+ (plugins (byte func3_raul.cma) (native func3_raul.cmxs))
+ (native_archives func3_raul.a)
+ (requires sqlite3 cohttp-lwt-unix lwt yojson)
+ (main_module_name Func3_raul)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name func3_raul)
+     (visibility public)
+     (kind alias)
+     (source (path Func3_raul) (impl (path func3_raul.ml-gen))))
+    (name Func3_raul)
+    (modules
+     (module
+      (obj_name func3_raul__Db_utils)
+      (visibility public)
+      (source (path Db_utils) (impl (path db_utils.ml))))
+     (module
+      (obj_name func3_raul__Webhook)
+      (visibility public)
+      (source (path Webhook) (impl (path webhook.ml))))))
+   (wrapped true))))

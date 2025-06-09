@@ -1,7 +1,25 @@
 lib: [
   "_build/install/default/lib/func3-raul/META"
+  "_build/install/default/lib/func3-raul/db_utils.ml"
   "_build/install/default/lib/func3-raul/dune-package"
+  "_build/install/default/lib/func3-raul/func3_raul.a"
+  "_build/install/default/lib/func3-raul/func3_raul.cma"
+  "_build/install/default/lib/func3-raul/func3_raul.cmi"
+  "_build/install/default/lib/func3-raul/func3_raul.cmt"
+  "_build/install/default/lib/func3-raul/func3_raul.cmx"
+  "_build/install/default/lib/func3-raul/func3_raul.cmxa"
+  "_build/install/default/lib/func3-raul/func3_raul.ml"
+  "_build/install/default/lib/func3-raul/func3_raul__Db_utils.cmi"
+  "_build/install/default/lib/func3-raul/func3_raul__Db_utils.cmt"
+  "_build/install/default/lib/func3-raul/func3_raul__Db_utils.cmx"
+  "_build/install/default/lib/func3-raul/func3_raul__Webhook.cmi"
+  "_build/install/default/lib/func3-raul/func3_raul__Webhook.cmt"
+  "_build/install/default/lib/func3-raul/func3_raul__Webhook.cmx"
   "_build/install/default/lib/func3-raul/opam"
+  "_build/install/default/lib/func3-raul/webhook.ml"
+]
+libexec: [
+  "_build/install/default/lib/func3-raul/func3_raul.cmxs"
 ]
 bin: [
   "_build/install/default/bin/func3-raul"
