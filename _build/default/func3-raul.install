@@ -24,3 +24,6 @@ libexec: [
 bin: [
   "_build/install/default/bin/func3-raul"
 ]
+doc: [
+  "_build/install/default/doc/func3-raul/README.md"
+]

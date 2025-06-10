@@ -1,6 +1,6 @@
 (lang dune 3.18)
 (name func3-raul)
-(sections (lib .) (libexec .) (bin ../../bin))
+(sections (lib .) (libexec .) (bin ../../bin) (doc ../../doc/func3-raul))
 (files
  (lib
   (META
@@ -22,7 +22,8 @@
    opam
    webhook.ml))
  (libexec (func3_raul.cmxs))
- (bin (func3-raul)))
+ (bin (func3-raul))
+ (doc (README.md)))
 (library
  (name func3-raul)
  (kind normal)
